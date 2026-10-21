@@ -1,31 +1,17 @@
 # DSA495-scientific-claim-verification
 
-> **DSA 495 Topic Brief**
->
-> Replace the bracketed prompts below with your team’s information. Keep this file at the root of your team’s project repository and name it `README.md`.
-
-## Before You Begin
-
-- Create **one shared project repository per team** and continue using it through the end of the semester. Do not create separate repositories for the Topic Brief and later stages of the project.
-- The repository name must begin with the case-sensitive prefix **`DSA495`**, such as `DSA495-news-classification`. After the prefix, feel free to choose a creative and distinctive team name; it does not have to describe your task or topic. A repository whose name does not begin with `DSA495` will receive zero credit for the Topic Brief.
-- Complete every required section and item below. Anything labeled optional may be left undecided! If another required item does not apply, write “Not applicable” and briefly explain why. Feel free to add sections as needed, but keep the brief concise.
-- Make sure the repository is accessible to the instructor by choosing one of the following options:
-  1. **Public repository:** No collaborator invitation is required.
-  2. **Private repository:** Add the instructor as a collaborator using the GitHub username `SerenaYKim`.
-- Do not upload sensitive or restricted information to GitHub, even in a private repository. If your project uses such data, keep it in a shared team drive and use GitHub for code, documentation, and other materials that can be shared safely.
-
 ## Team Members
 
 - Yogya Koneru
 
 ## One-Sentence Task
 
-**Given a scientific claim, we will find and rank research paper summaries based on how closely they relate to the claim and show any available evidence that supports or contradicts it..**
+**Given a scientific claim, we will find and rank research paper summaries based on how closely they relate to the claim and show any available evidence that supports or contradicts it.**
 
 ## Illustrative Input and Desired Output
 
-- **Example input: “Antiretroviral therapy increases rates of tuberculosis across a broad range of CD4 strata.”
-- **Desired output: A list of the five most relevant research paper summaries, ranked by how closely they relate to the claim. The program would show each paper's title and ID, along with any available evidence that supports or contradicts the claim. For this example, SciFact identifies evidence in document 4883040 that contradicts the claim.
+- **Example input:** "Vitamin D supplementation reduces the risk of respiratory infections."
+- **Desired output:** A list of the five most relevant research paper summaries, ranked by how closely they relate to the claim. The program would show each paper's title, ID, and similarity score, along with relevant sentences from the summaries. For claims already in SciFact, it could also show any available evidence labels.
 
 ## Background and Starting Point
 
