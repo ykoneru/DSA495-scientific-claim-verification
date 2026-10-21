@@ -20,62 +20,62 @@
 
 ## One-Sentence Task
 
-**Given [the text or other input], we will [analyze, classify, retrieve, compare, or generate] [the intended output].**
-
-[Replace the sentence above with one specific task. Describe what the project will do, not only the general topic that interests you.]
+**Given a scientific claim, we will retrieve and compare research papers relative to the claim and compare the evidence to see if it supports or contradicts the specific claim.**
 
 ## Illustrative Input and Desired Output
 
-- **Example input:** [Provide one representative, non-sensitive input to the proposed system. A short, hypothetical, or sanitized example is acceptable.]
-- **Desired output:** [Show or describe what the system should return, predict, rank, extract, compare, or generate for that input.]
+- **Example input:** Getting enough sleep improves concentration and focus throughout the day.
+- **Desired output:** I would get a list of different studies about sleep ranked from most important to least important in regards to the claim, and then the program would show any evidence that supports or contradicts the claim.
 
 ## Background and Starting Point
 
-[Briefly explain why your team is interested in this topic and how the idea began. What examples, experiences, questions, applications, or existing resources gave you the starting point? Provide enough context for the instructor to understand the idea, but do not write a literature review or extended theoretical justification.]
+We see a lot of scientific claims online, but it can be difficult to know if there is actual research supporting them. There are so many studies available that finding the right one can take a lot of time. Even after finding a study, we still have to read through it to understand what the researchers found and whether it agrees with the claim. I became interested in this project because I thought it would be useful to have a program that makes finding this information easier.
 
 ## Intended Output and Success
 
-[Describe what you want the project to produce or accomplish. For example, the output might be predicted labels, groups of related documents, discovered topics, extracted information, ranked search results, generated answers, a comparison of texts, or another useful result. If someone would use the output, identify that user and what the output would help them do.]
+I want to make a Python program where someone can enter a scientific claim and get back a list of research papers that are related to it. The program would rank the results and show the titles or IDs of the studies. Since the SciFact dataset includes labels for some of the evidence, I also want to show the sentences that researchers marked as supporting or contradicting the claim. I think this could help students and researchers who want to find studies about something they have read or heard. The program would help people find evidence, but it would not automatically mean that a claim is true or false.
 
-**Success statement:** [In one sentence, describe what would make the output useful or successful. A formal evaluation metric is not required at this stage.]
+**Success statement:** I would consider the project successful if it can find studies that contain useful evidence and rank them near the top, so people do not have to spend as much time looking for them.
 
 ## Preferred Data
 
 ### Corpus
 
-[Describe the collection of text you expect to analyze. What does one item in the corpus represent—for example, one article, review, post, transcript, response, or policy document? What text and other useful fields or labels are available? Approximately how large is the corpus?]
+I plan to use SciFact, which has around 5,183 research paper summaries and 1,400 scientific claims. Each summary counts as one document. The dataset includes paper titles, text, IDs, and labels showing which sentences support or contradict a claim. The main files are corpus.jsonl for the papers and claims_train.jsonl and claims_dev.jsonl for the labeled claims.
 
 ### Source and Access
 
-- **Dataset or corpus name:** [Name]
-- **Original source organization or creator:** [Source]
-- **Original collection process:** [Who originally collected the data, when, and how, if known? Distinguish the original source from a site that only redistributes the data.]
-- **Direct link:** [URL]
-- **Access method:** [Download, API, web collection, request, or another method]
-- **Access, licensing, privacy, or redistribution considerations:** [Explain any restrictions or write “None identified.”]
-- **Backup corpus (optional):** [Identify an alternative source if losing access to the preferred corpus is a meaningful risk, or write “Not needed at this stage.”]
+- **Dataset or corpus name:** SciFact
+- **Original source organization or creator:** Researchers from the Allen Institute for AI and their collaborators.
+- **Original collection process:** Researchers made claims from scientific papers and labeled evidence as supporting or contradicting them. The paper summaries came from the Semantic Scholar Open Research Corpus (S2ORC).
+- **Direct link:** https://github.com/allenai/scifact
+- **Access method:** Download the JSONL files using the instructions on GitHub.
+- **Access, licensing, privacy, or redistribution considerations:** The claims and labels use CC BY 4.0, while the paper summaries use ODC-By 1.0. I would credit the original researchers and link to the data instead of uploading it again. I would also make it clear that the results are not medical advice.
+- **Backup corpus (optional):** If SciFact doesn't work out, I could use a smaller public set I can find on the internet.
 
 ### Examples
 
-[Show or describe two or three representative examples. You may quote short, non-sensitive excerpts, describe typical documents, or link to examples. Do not copy private, restricted, or personally identifiable information into the repository.]
+Scientific claim: “Antiretroviral therapy increases rates of tuberculosis across a broad range of CD4 strata.” The dataset has evidence in document 4883040 that contradicts this claim.
+
+Scientific claim: “Citrullinated proteins externalized in neutrophil extracellular traps act indirectly to disrupt the inflammatory cycle.” The dataset showscontradicting evidence in documents 11328820 and 30041340
 
 ### Fit with the Task
 
-[Explain briefly why this corpus contains the text, labels, metadata, or other information needed for the one-sentence task. Note any important information that may be missing or difficult to obtain.]
+I think SciFact is a good choice because it has both the research papers I want to search through and labels showing which ones contain evidence for different claims. This means I can compare the papers my program finds with the ones that researchers have already marked as relevant. One limitation is that the dataset only includes short summaries of papers rather than the full studies. This means some important information might be missing. Also, a paper that is not marked as evidence could still contain useful information, so I would need to keep that in mind when looking at my results.
 
 ## Feasibility and Immediate Next Steps
 
-- **Minimum viable project:** [Describe the smallest complete version of the project your team could deliver successfully.]
-- **Data-access check:** [State whether a team member has successfully opened, downloaded, or queried the proposed data. If not, identify the next access step.]
-- **Largest current risk:** [Identify the most important uncertainty involving data, labels, computing, scope, evaluation, or another dependency.]
-- **Backup plan:** [Explain how the team could narrow or adjust the project if that risk occurs.]
+- **Minimum viable project:** I want to build a Python program that finds the five most relevant research paper summaries for a scientific claim. I will use sentence embeddings and cosine similarity to find papers that are related to the claim.
+- **Data-access check:** I have looked through the SciFact GitHub page but have not downloaded the data yet. My next step is to download it and make sure I can read the files.
+- **Largest current risk:** The program might find papers about the same topic that do not actually contain evidence supporting or contradicting the claim.
+- **Backup plan:** If predicting whether evidence supports or contradicts a claim becomes too difficult, I will focus on only finding relevant papers and use the already known SciFact labels to check my results.
 - **Next two actions:**
-  1. [Action — responsible team member(s) — approximate target date]
-  2. [Action — responsible team member(s) — approximate target date]
+  1. Download SciFact and look over its claims and paper summaries — Yogya Koneru — October 22, 2026.
+  2. Build and test a search program using sentence embeddings and cosine similarity — Yogya Koneru — October 25, 2026.
 
 ## Possible Text-Analysis Method and Evaluation (Optional)
 
-[If your team already has ideas, name one or more text-analysis methods you may try. Then explain how you might judge whether the output performs well or is useful—for example, with a baseline, labeled test examples, appropriate metrics, retrieval checks, human review, error analysis, or comparison across approaches. It is acceptable to write “Not yet decided” and ask for guidance below.]
+I plan to use sentence embeddings and cosine similarity to find research papers that are related to a scientific claim. I will use Python to compare the results with the existing labels in SciFact to see how often the program finds the correct papers. I also want to look at cases where the program makes mistakes to understand what could be improved. If I have enough time, I would like to use text classification to predict whether evidence supports or contradicts a claim.
 
 ## Questions for the Instructor
 
