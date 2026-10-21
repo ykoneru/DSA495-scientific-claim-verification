@@ -20,12 +20,12 @@
 
 ## One-Sentence Task
 
-**Given a scientific claim, we will retrieve and compare research papers relative to the claim and compare the evidence to see if it supports or contradicts the specific claim.**
+**Given a scientific claim, we will find and rank research paper summaries based on how closely they relate to the claim and show any available evidence that supports or contradicts it..**
 
 ## Illustrative Input and Desired Output
 
-- **Example input:** Getting enough sleep improves concentration and focus throughout the day.
-- **Desired output:** I would get a list of different studies about sleep ranked from most important to least important in regards to the claim, and then the program would show any evidence that supports or contradicts the claim.
+- **Example input: “Antiretroviral therapy increases rates of tuberculosis across a broad range of CD4 strata.”
+- **Desired output: A list of the five most relevant research paper summaries, ranked by how closely they relate to the claim. The program would show each paper's title and ID, along with any available evidence that supports or contradicts the claim. For this example, SciFact identifies evidence in document 4883040 that contradicts the claim.
 
 ## Background and Starting Point
 
@@ -66,12 +66,12 @@ I think SciFact is a good choice because it has both the research papers I want 
 ## Feasibility and Immediate Next Steps
 
 - **Minimum viable project:** I want to build a Python program that finds the five most relevant research paper summaries for a scientific claim. I will use sentence embeddings and cosine similarity to find papers that are related to the claim.
-- **Data-access check:** I have looked through the SciFact GitHub page but have not downloaded the data yet. My next step is to download it and make sure I can read the files.
+- **Data-access check:** I downloaded the SciFact dataset and used Python to open the three main files: corpus.jsonl, claims_train.jsonl, and claims_dev.jsonl. I looked through the files to make sure they had the research paper summaries, claims, and evidence labels.
 - **Largest current risk:** The program might find papers about the same topic that do not actually contain evidence supporting or contradicting the claim.
 - **Backup plan:** If predicting whether evidence supports or contradicts a claim becomes too difficult, I will focus on only finding relevant papers and use the already known SciFact labels to check my results.
 - **Next two actions:**
-  1. Download SciFact and look over its claims and paper summaries — Yogya Koneru — October 22, 2026.
-  2. Build and test a search program using sentence embeddings and cosine similarity — Yogya Koneru — October 25, 2026.
+  1. Look through some of the claims, paper summaries, and evidence labels to better understand how the dataset works — Yogya Koneru — October 22, 2026.
+  2. Make a basic program using sentence embeddings and cosine similarity to find research papers related to a claim — Yogya Koneru — October 25, 2026.
 
 ## Possible Text-Analysis Method and Evaluation (Optional)
 
@@ -79,9 +79,8 @@ I plan to use sentence embeddings and cosine similarity to find research papers 
 
 ## Questions for the Instructor
 
-- [What feedback would help your team move forward? You might ask about scope, data feasibility, methods, evaluation, tools, or project risks.]
-- [Add another question, or write “No additional questions at this time.”]
+Would focusing on finding and ranking the research papers be enough for the final project if I cannot finish predicting whether evidence supports or contradicts a claim?
 
 ## AI-Use Statement
 
-[Identify any generative or agentic AI tool used to prepare this brief, its purpose, the work completed before consulting it, the advice incorporated, and how the output was verified. If your team did not use such a tool, state that clearly.]
+After coming up with interests I have on my own, I used AI tools to help brainstorm project ideas by giving it my resume and asking for interesting projects I could make to enhance my resume. I also used it to, after manually checking, verify the quality of different datasets for my project. I selected a project that was at the intersection of my own interests, and after from AI suggestions, which is how I landed on this idea. 
